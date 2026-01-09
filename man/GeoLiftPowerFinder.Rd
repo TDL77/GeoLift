@@ -25,9 +25,7 @@ GeoLiftPowerFinder(
   run_stochastic_process = FALSE,
   parallel = TRUE,
   parallel_setup = "sequential",
-  side_of_test = "two_sided",
-  import_augsynth_from = "library(augsynth)",
-  import_tidyr_from = "library(tidyr)"
+  side_of_test = "two_sided"
 )
 }
 \arguments{
@@ -106,12 +104,6 @@ using a one sided or a two sided test.
 If the effect being applied is negative, then defaults to -sum(x). H0: ES >= 0; HA: ES < 0.
 If the effect being applied is positive, then defaults to sum(x). H0: ES <= 0; HA: ES > 0.}
 }}
-
-\item{import_augsynth_from}{Points to where the augsynth package
-should be imported from to send to the nodes.}
-
-\item{import_tidyr_from}{Points to where the tidyr package
-should be imported from to send to the nodes.}
 }
 \value{
 Data frame with the ordered list of best locations and their

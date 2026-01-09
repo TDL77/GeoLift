@@ -617,11 +617,6 @@ run_simulations <- function(data,
 #'          If the effect being applied is negative, then defaults to -sum(x). H0: ES >= 0; HA: ES < 0.
 #'          If the effect being applied is positive, then defaults to sum(x). H0: ES <= 0; HA: ES > 0.}
 #'          }
-#' @param import_augsynth_from Points to where the augsynth package
-#' should be imported from to send to the nodes.
-#' @param import_tidyr_from Points to where the tidyr package
-#' should be imported from to send to the nodes.
-#'
 #' @return
 #' Data frame with the ordered list of best locations and their
 #' average power.
@@ -646,14 +641,10 @@ GeoLiftPowerFinder <- function(data,
                                run_stochastic_process = FALSE,
                                parallel = TRUE,
                                parallel_setup = "sequential",
-                               side_of_test = "two_sided",
-                               import_augsynth_from = "library(augsynth)",
-                               import_tidyr_from = "library(tidyr)") {
+                               side_of_test = "two_sided") {
   if (parallel == TRUE) {
     cl <- build_cluster(
-      parallel_setup = parallel_setup,
-      import_augsynth_from = import_augsynth_from,
-      import_tidyr_from = import_tidyr_from
+      parallel_setup = parallel_setup
     )
   }
 
@@ -931,10 +922,6 @@ GeoLiftPowerFinder <- function(data,
 #' speed up calculations. Set to TRUE by default.
 #' @param parallel_setup A string indicating parallel workers set-up.
 #' Set to "sequential" by default.
-#' @param import_augsynth_from Points to where the augsynth package
-#' should be imported from to send to the nodes.
-#' @param import_tidyr_from Points to where the tidyr package
-#' should be imported from to send to the nodes.
 #'
 #' @return
 #' Data frame with the ordered list of best locations and their
@@ -960,14 +947,10 @@ GeoLiftPower.search <- function(data,
                                 ProgressBar = FALSE,
                                 run_stochastic_process = FALSE,
                                 parallel = TRUE,
-                                parallel_setup = "sequential",
-                                import_augsynth_from = "library(augsynth)",
-                                import_tidyr_from = "library(tidyr)") {
+                                parallel_setup = "sequential") {
   if (parallel == TRUE) {
     cl <- build_cluster(
-      parallel_setup = parallel_setup,
-      import_augsynth_from = import_augsynth_from,
-      import_tidyr_from = import_tidyr_from
+      parallel_setup = parallel_setup
     )
   }
 
@@ -1174,10 +1157,6 @@ GeoLiftPower.search <- function(data,
 #' speed up calculations. Set to TRUE by default.
 #' @param parallel_setup A string indicating parallel workers set-up.
 #' Set to "sequential" by default.
-#' @param import_augsynth_from Points to where the augsynth package
-#' should be imported from to send to the nodes.
-#' @param import_tidyr_from Points to where the tidyr package
-#' should be imported from to send to the nodes.
 #'
 #' @return
 #' Table of average power by number of locations.
@@ -1201,14 +1180,10 @@ NumberLocations <- function(data,
                             stat_func = NULL,
                             ProgressBar = FALSE,
                             parallel = TRUE,
-                            parallel_setup = "sequential",
-                            import_augsynth_from = "library(augsynth)",
-                            import_tidyr_from = "library(tidyr)") {
+                            parallel_setup = "sequential") {
   if (parallel == TRUE) {
     cl <- build_cluster(
-      parallel_setup = parallel_setup,
-      import_augsynth_from = import_augsynth_from,
-      import_tidyr_from = import_tidyr_from
+      parallel_setup = parallel_setup
     )
   }
 
@@ -1436,10 +1411,6 @@ NumberLocations <- function(data,
 #' @param conformal_type Type of conformal inference used. Can be either "iid" for Independent and identically
 #' distributed or "block" for moving block permutations. Set to "iid" by default.
 #' @param ns Number of resamples for "iid" permutations if `conformal_type = "iid`. Set to 1000 by default.
-#' @param import_augsynth_from Points to where the augsynth package
-#' should be imported from to send to the nodes.
-#' @param import_tidyr_from Points to where the tidyr package
-#' should be imported from to send to the nodes.
 #'
 #' @return
 #' GeoLiftPower object that contains:
@@ -1476,14 +1447,10 @@ GeoLiftPower <- function(data,
                          parallel_setup = "sequential",
                          side_of_test = "two_sided",
                          conformal_type = "iid",
-                         ns = 1000,
-                         import_augsynth_from = "library(augsynth)",
-                         import_tidyr_from = "library(tidyr)") {
+                         ns = 1000) {
   if (parallel == TRUE) {
     cl <- build_cluster(
-      parallel_setup = parallel_setup,
-      import_augsynth_from = import_augsynth_from,
-      import_tidyr_from = import_tidyr_from
+      parallel_setup = parallel_setup
     )
   }
 
@@ -1625,10 +1592,6 @@ GeoLiftPower <- function(data,
 #' @param conformal_type Type of conformal inference used. Can be either "iid" for Independent and identically
 #' distributed or "block" for moving block permutations. Set to "iid" by default.
 #' @param ns Number of resamples for "iid" permutations if `conformal_type = "iid`. Set to 1000 by default.
-#' @param import_augsynth_from Points to where the augsynth package
-#' should be imported from to send to the nodes.
-#' @param import_tidyr_from Points to where the tidyr package
-#' should be imported from to send to the nodes.
 #'
 #' @return
 #' A list with three Data Frames. \itemize{
@@ -1670,14 +1633,10 @@ GeoLiftMarketSelection <- function(data,
                                    parallel_setup = "sequential",
                                    side_of_test = "two_sided",
                                    conformal_type = "iid",
-                                   ns = 1000,
-                                   import_augsynth_from = "library(augsynth)",
-                                   import_tidyr_from = "library(tidyr)") {
+                                   ns = 1000) {
   if (parallel == TRUE) {
     cl <- build_cluster(
-      parallel_setup = parallel_setup,
-      import_augsynth_from = import_augsynth_from,
-      import_tidyr_from = import_tidyr_from
+      parallel_setup = parallel_setup
     )
   }
 
